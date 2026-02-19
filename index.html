@@ -25,10 +25,9 @@
         
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER / HERO SECTION (Nouvelle image Supercar) */
+        /* HEADER / HERO SECTION */
         header {
-            /* Changement de l'URL ici pour une Lamborghini agressive */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1200&auto=format&fit=crop') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1200&auto=format&fit=crop') center/cover;
             height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 2px solid var(--accent);
         }
         .badge-premium { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 8px 20px; font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 20px; }
@@ -47,7 +46,7 @@
         .section-header h2 { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
         .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        /* POLE LOCATION (BROKER) */
+        /* GRILLES (Auto & Immo) */
         .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .car-card { background: var(--card-bg); border: 1px solid #222; border-radius: 8px; overflow: hidden; transition: 0.3s; }
         .car-card:hover { border-color: var(--accent); transform: translateY(-5px); }
@@ -55,8 +54,10 @@
         .car-info { padding: 30px; }
         .car-title { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
         .location-tag { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 5px 12px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 25px; }
+        .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 5px 12px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 15px; }
         
+        .criteria-list { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; padding-left: 20px; line-height: 1.8; }
+
         /* POLE FORMATION (BUSINESS) */
         .academy-box { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid var(--accent); border-radius: 12px; padding: 50px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .academy-content { flex: 1; min-width: 300px; }
@@ -68,9 +69,10 @@
         .academy-box:hover .academy-image img { filter: grayscale(0%); }
 
         /* CONTACT RAPIDE */
-        .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
         .btn-wa { background: var(--whatsapp); color: #fff; padding: 12px; text-align: center; font-weight: bold; border-radius: 5px; }
         .btn-mail { background: #222; color: #fff; padding: 12px; text-align: center; font-weight: bold; border-radius: 5px; }
+        .btn-full { grid-column: 1 / -1; } /* Prend toute la largeur */
 
         footer { text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #555; font-size: 0.85rem; }
         
@@ -78,6 +80,7 @@
             header h1 { font-size: 2.5rem; }
             .hero-buttons { flex-direction: column; width: 100%; }
             .hero-buttons a { width: 100%; box-sizing: border-box; text-align: center; }
+            .contact-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -87,62 +90,93 @@
     <div class="container">
         <div class="badge-premium">AGENCE INTERNATIONALE</div>
         <h1>RM LOCATION <span>ZH</span></h1>
-        <p class="tagline">Plateforme de réservation haut de gamme & Formation professionnelle pour lancer votre activité dans le secteur automobile.</p>
+        <p class="tagline">Plateforme de réservation de véhicules, location de biens de prestige et accompagnement business exclusif.</p>
         <div class="hero-buttons">
-            <a href="#location" class="btn-gold">Louer un véhicule</a>
-            <a href="#formation" class="btn-outline">Lancer mon agence</a>
+            <a href="#auto" class="btn-gold">Flotte Auto</a>
+            <a href="#immo" class="btn-outline">Immobilier</a>
+            <a href="#formation" class="btn-outline">Académie</a>
         </div>
     </div>
 </header>
 
-<section id="location">
+<section id="auto">
     <div class="container">
         <div class="section-header">
-            <h2>Pôle Réservation</h2>
+            <h2>Pôle Automobile</h2>
             <p>Accédez à notre réseau de partenaires agréés. Des véhicules de prestige disponibles immédiatement, sans contrainte.</p>
         </div>
         
         <div class="fleet-grid">
-            
             <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=800&auto=format&fit=crop" alt="Supercar Dubaï" class="car-img">
+                <img src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?q=80&w=800&auto=format&fit=crop" alt="Véhicules Dubaï" class="car-img">
                 <div class="car-info">
                     <h3 class="car-title">Flotte Dubaï</h3>
-                    <span class="location-tag">📍 Disponible à Dubaï (Partenaires agréés)</span>
+                    <span class="location-tag">📍 Disponible à Dubaï</span>
                     <span class="no-caution">🤝 SANS CAUTION</span>
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Profitez des meilleurs SUV et berlines sportives pour votre séjour aux Émirats.</p>
                     
                     <div class="contact-buttons">
-                        <a href="https://wa.me/33600000000?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20%C3%A0%20Duba%C3%AF%20(Sans%20caution).%20Quels%20v%C3%A9hicules%20avez-vous%20de%20disponible%20?%20" target="_blank" class="btn-wa">📱 WhatsApp</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Demande%20de%20location%20-%20Dubaï" class="btn-mail">✉️ Email</a>
+                        <a href="https://wa.me/971585689047?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20auto%20%C3%A0%20Duba%C3%AF.%20%0ADates%20:%20...%0AV%C3%A9hicule%20souhait%C3%A9%20:%20..." target="_blank" class="btn-wa">📱 WhatsApp</a>
+                        <a href="mailto:contact@rmlocationzh.com?subject=Location%20Auto%20-%20Dubaï" class="btn-mail">✉️ Email</a>
                     </div>
                 </div>
             </div>
 
             <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Range Rover Marrakech" class="car-img">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop" alt="Véhicules Marrakech" class="car-img">
                 <div class="car-info">
                     <h3 class="car-title">Flotte Marrakech</h3>
-                    <span class="location-tag">📍 Disponible à Marrakech (Partenaires agréés)</span>
+                    <span class="location-tag">📍 Disponible à Marrakech</span>
                     <span class="no-caution">🤝 SANS CAUTION</span>
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Range Rover, Classe G et véhicules de prestige pour arpenter le Maroc avec élégance.</p>
                     
                     <div class="contact-buttons">
-                        <a href="https://wa.me/33600000000?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20%C3%A0%20Marrakech%20(Sans%20caution).%20Quels%20v%C3%A9hicules%20avez-vous%20de%20disponible%20?" target="_blank" class="btn-wa">📱 WhatsApp</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Demande%20de%20location%20-%20Marrakech" class="btn-mail">✉️ Email</a>
+                        <a href="https://wa.me/33759336987?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20auto%20%C3%A0%20Marrakech.%20%0ADates%20:%20...%0AV%C3%A9hicule%20souhait%C3%A9%20:%20..." target="_blank" class="btn-wa">📱 WhatsApp</a>
+                        <a href="mailto:contact@rmlocationzh.com?subject=Location%20Auto%20-%20Marrakech" class="btn-mail">✉️ Email</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<section id="formation" style="background-color: #0a0a0a;">
+<section id="immo" style="background-color: #0a0a0a;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Pôle Immobilier</h2>
+            <p>Villas et appartements de haut standing. Confiez-nous vos critères, nous trouvons le bien parfait pour votre séjour.</p>
+        </div>
+        
+        <div class="fleet-grid">
+            <div class="car-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Villa de luxe" class="car-img" style="height: 350px;">
+                <div class="car-info">
+                    <h3 class="car-title">Villas & Appartements</h3>
+                    <span class="location-tag">📍 Réseau Dubaï & Marrakech</span>
+                    <p style="color:#ddd; margin-bottom:10px;">Gagnez du temps : envoyez-nous vos critères en un clic et recevez une sélection de biens correspondants.</p>
+                    
+                    <ul class="criteria-list">
+                        <li>📅 Vos dates exactes</li>
+                        <li>👥 Nombre de personnes</li>
+                        <li>🛏️ Nombre de chambres</li>
+                        <li>⏱️ Durée du séjour</li>
+                        <li>💵 Votre budget</li>
+                    </ul>
+                    
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/33759336987?text=Bonjour,%20je%20recherche%20un%20bien%20(Villa/Appartement).%0A%0A%F0%9F%93%85%20Dates%20:%20...%0A%F0%9F%91%A5%20Personnes%20:%20...%0A%F0%9F%9B%8F%EF%B8%8F%20Chambres%20:%20...%0A%E2%8F%B1%EF%B8%8F%20Dur%C3%A9e%20:%20...%0A%F0%9F%92%B5%20Budget%20:%20..." target="_blank" class="btn-wa btn-full">📱 Formulaire Rapide (WhatsApp)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="formation">
     <div class="container">
         <div class="section-header">
             <h2>Pôle Académie & Business</h2>
-            <p>Ne vous contentez pas de rouler, devenez le propriétaire. Nous vous formons de A à Z pour lancer votre propre agence de location.</p>
+            <p>Ne vous contentez pas de rouler, devenez le propriétaire. Nous vous formons de A à Z pour lancer votre propre agence.</p>
         </div>
 
         <div class="academy-box">
@@ -151,11 +185,10 @@
                 <ul class="academy-list">
                     <li><strong>Business Plan :</strong> Stratégie de rentabilité complète.</li>
                     <li><strong>Réseau Fournisseurs :</strong> Accès exclusif à nos contacts.</li>
-                    <li><strong>Coaching Personnel :</strong> Accompagnement téléphonique sur-mesure.</li>
-                    <li><strong>Lancement Rapide :</strong> Les erreurs à éviter pour générer du cash rapidement.</li>
+                    <li><strong>Coaching Personnel :</strong> Accompagnement téléphonique.</li>
                 </ul>
                 <br>
-                <a href="https://wa.me/33600000000?text=Bonjour%20l'%C3%A9quipe%20RM%20Location,%20je%20souhaite%20des%20informations%20sur%20la%20Formation%20Professionnelle%20pour%20lancer%20mon%20agence%20auto.%20Comment%20rejoindre%20le%20coaching%20?" target="_blank" class="btn-gold" style="display:inline-block;">💬 Postuler à la formation</a>
+                <a href="https://wa.me/33759336987?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20la%20Formation%20Business%20Auto." target="_blank" class="btn-gold" style="display:inline-block;">💬 Postuler à la formation</a>
             </div>
             <div class="academy-image">
                 <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Coaching Business">
@@ -167,7 +200,7 @@
 <footer>
     <div class="container">
         <p>© 2026 RM Location ZH. Tous droits réservés.</p>
-        <p style="color:#444;">Site développé par Yac Design - Éditeur Technique.</p>
+        <p style="color:#444;">Site de démonstration propulsé par Yac Design.</p>
     </div>
 </footer>
 
