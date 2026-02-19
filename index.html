@@ -16,18 +16,18 @@
             --accent: #D4AF37;         /* Or premium */
             --accent-glow: rgba(212, 175, 55, 0.2);
             --whatsapp: #25D366;
+            --danger: #ff3b3b;
         }
 
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth; }
         h1, h2, h3, h4 { text-transform: uppercase; margin: 0; letter-spacing: 2px; font-weight: 600; }
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: 0.3s; cursor: pointer; }
         ul { list-style: none; padding: 0; }
         
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER / HERO SECTION - NOUVELLE PHOTO AGRESSIVE */
+        /* HEADER / HERO SECTION */
         header {
-            /* Changement de l'URL ici pour une image plus agressive */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1503376763036-064379897311?q=80&w=1200&auto=format&fit=crop') center/cover;
             height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 2px solid var(--accent);
         }
@@ -37,9 +37,9 @@
         .tagline { font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 0 auto 40px; }
         
         .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .btn-gold { background: var(--accent); color: #000; padding: 15px 35px; font-weight: bold; border-radius: 5px; text-transform: uppercase; box-shadow: 0 0 20px var(--accent-glow); }
+        .btn-gold { background: var(--accent); color: #000; padding: 15px 35px; font-weight: bold; border-radius: 5px; text-transform: uppercase; box-shadow: 0 0 20px var(--accent-glow); display: inline-block; cursor: pointer; border: none; font-size: 1rem;}
         .btn-gold:hover { background: #eac14d; transform: translateY(-3px); }
-        .btn-outline { background: transparent; border: 1px solid #fff; color: #fff; padding: 15px 35px; font-weight: bold; border-radius: 5px; text-transform: uppercase; }
+        .btn-outline { background: transparent; border: 1px solid #fff; color: #fff; padding: 15px 35px; font-weight: bold; border-radius: 5px; text-transform: uppercase; display: inline-block; cursor: pointer; font-size: 1rem;}
         .btn-outline:hover { background: #fff; color: #000; transform: translateY(-3px); }
 
         section { padding: 80px 0; }
@@ -47,41 +47,47 @@
         .section-header h2 { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
         .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        /* GRILLES (Auto & Immo) */
+        /* GRILLES */
         .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .car-card { background: var(--card-bg); border: 1px solid #222; border-radius: 8px; overflow: hidden; transition: 0.3s; }
         .car-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .car-img { width: 100%; height: 250px; object-fit: cover; border-bottom: 1px solid #222; }
-        .car-info { padding: 30px; }
+        .car-info { padding: 30px; text-align: center; }
         .car-title { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
         .location-tag { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; display: block; }
         .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 5px 12px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 15px; }
+
+        /* MODALS & FORMS */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .modal-content { background: var(--card-bg); padding: 40px; border-radius: 12px; width: 90%; max-width: 600px; border: 1px solid var(--accent); position: relative; max-height: 90vh; overflow-y: auto; }
+        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 1.8rem; color: #aaa; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #fff; }
         
-        .criteria-list { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; padding-left: 20px; line-height: 1.8; }
+        .modal-title { color: var(--accent); font-size: 1.5rem; margin-bottom: 20px; text-align: center; }
+        
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; color: #ccc; font-size: 0.9rem; font-weight: bold; }
+        .form-control { width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid #333; color: #fff; border-radius: 5px; font-family: inherit; font-size: 1rem; box-sizing: border-box; }
+        .form-control:focus { outline: none; border-color: var(--accent); }
 
-        /* POLE FORMATION (BUSINESS) */
-        .academy-box { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid var(--accent); border-radius: 12px; padding: 50px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .academy-content { flex: 1; min-width: 300px; }
-        .academy-content h3 { font-size: 2.2rem; margin-bottom: 20px; }
-        .academy-list li { margin-bottom: 15px; font-size: 1.1rem; color: #ddd; display: flex; align-items: center; }
-        .academy-list li::before { content: '✔'; color: var(--accent); margin-right: 15px; font-weight: bold; }
-        .academy-image { flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden; }
-        .academy-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%); transition: 0.5s; }
-        .academy-box:hover .academy-image img { filter: grayscale(0%); }
+        .form-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+        .btn-wa { background: var(--whatsapp); color: #fff; padding: 15px; text-align: center; font-weight: bold; border-radius: 5px; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-wa:hover { background: #1ebe57; }
+        .btn-mail { background: #333; color: #fff; padding: 15px; text-align: center; font-weight: bold; border-radius: 5px; border: 1px solid #555; cursor: pointer; font-size: 1rem; }
+        .btn-mail:hover { background: #444; }
 
-        /* CONTACT RAPIDE */
-        .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
-        .btn-wa { background: var(--whatsapp); color: #fff; padding: 12px; text-align: center; font-weight: bold; border-radius: 5px; }
-        .btn-mail { background: #222; color: #fff; padding: 12px; text-align: center; font-weight: bold; border-radius: 5px; }
-        .btn-full { grid-column: 1 / -1; } /* Prend toute la largeur */
+        /* LEGAL TEXT IN MODAL */
+        .legal-text h4 { color: var(--accent); margin-top: 20px; margin-bottom: 10px; }
+        .legal-text p { font-size: 0.9rem; color: #bbb; margin-bottom: 10px; }
 
         footer { text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #555; font-size: 0.85rem; }
-        
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: var(--text-muted); margin: 0 10px; text-decoration: underline; }
+        .footer-links a:hover { color: var(--accent); }
+
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .hero-buttons a { width: 100%; box-sizing: border-box; text-align: center; }
-            .contact-buttons { grid-template-columns: 1fr; }
+            .form-actions { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -95,7 +101,6 @@
         <div class="hero-buttons">
             <a href="#auto" class="btn-gold">Flotte Auto</a>
             <a href="#immo" class="btn-outline">Immobilier</a>
-            <a href="#formation" class="btn-outline">Académie</a>
         </div>
     </div>
 </header>
@@ -115,11 +120,7 @@
                     <span class="location-tag">📍 Disponible à Dubaï</span>
                     <span class="no-caution">🤝 SANS CAUTION</span>
                     <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Profitez des meilleurs SUV et berlines sportives pour votre séjour aux Émirats.</p>
-                    
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/971585689047?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20auto%20%C3%A0%20Duba%C3%AF.%20%0ADates%20:%20...%0AV%C3%A9hicule%20souhait%C3%A9%20:%20..." target="_blank" class="btn-wa">📱 WhatsApp</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Location%20Auto%20-%20Dubaï" class="btn-mail">✉️ Email</a>
-                    </div>
+                    <button class="btn-gold" onclick="openFormModal('auto', 'Dubaï', '971585689047')" style="width: 100%;">Réserver un véhicule</button>
                 </div>
             </div>
 
@@ -129,12 +130,8 @@
                     <h3 class="car-title">Flotte Marrakech</h3>
                     <span class="location-tag">📍 Disponible à Marrakech</span>
                     <span class="no-caution">🤝 SANS CAUTION</span>
-                    <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Range Rover, Classe G et véhicules de prestige pour arpenter le Maroc avec agressivité et élégance.</p>
-                    
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/33759336987?text=Bonjour%20RM%20Location,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20une%20location%20auto%20%C3%A0%20Marrakech.%20%0ADates%20:%20...%0AV%C3%A9hicule%20souhait%C3%A9%20:%20..." target="_blank" class="btn-wa">📱 WhatsApp</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Location%20Auto%20-%20Marrakech" class="btn-mail">✉️ Email</a>
-                    </div>
+                    <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Range Rover, Classe G et véhicules de prestige pour arpenter le Maroc avec élégance.</p>
+                    <button class="btn-gold" onclick="openFormModal('auto', 'Marrakech', '33759336987')" style="width: 100%;">Réserver un véhicule</button>
                 </div>
             </div>
         </div>
@@ -154,45 +151,9 @@
                 <div class="car-info">
                     <h3 class="car-title">Villas & Appartements</h3>
                     <span class="location-tag">📍 Réseau Dubaï & Marrakech</span>
-                    <p style="color:#ddd; margin-bottom:10px;">Gagnez du temps : envoyez-nous vos critères en un clic et recevez une sélection de biens correspondants.</p>
-                    
-                    <ul class="criteria-list">
-                        <li>📅 Vos dates exactes</li>
-                        <li>👥 Nombre de personnes</li>
-                        <li>🛏️ Nombre de chambres</li>
-                        <li>⏱️ Durée du séjour</li>
-                        <li>💵 Votre budget</li>
-                    </ul>
-                    
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/33759336987?text=Bonjour,%20je%20recherche%20un%20bien%20(Villa/Appartement).%0A%0A%F0%9F%93%85%20Dates%20:%20...%0A%F0%9F%91%A5%20Personnes%20:%20...%0A%F0%9F%9B%8F%EF%B8%8F%20Chambres%20:%20...%0A%E2%8F%B1%EF%B8%8F%20Dur%C3%A9e%20:%20...%0A%F0%9F%92%B5%20Budget%20:%20..." target="_blank" class="btn-wa btn-full">📱 Formulaire Rapide (WhatsApp)</a>
-                    </div>
+                    <p style="color:#ddd; margin-bottom:20px;">Gagnez du temps : remplissez le formulaire ci-dessous et recevez une sélection de biens correspondants à vos attentes.</p>
+                    <button class="btn-gold" onclick="openFormModal('immo', 'Dubaï/Marrakech', '33759336987')" style="width: 100%; max-width: 300px;">Rechercher un bien</button>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="formation">
-    <div class="container">
-        <div class="section-header">
-            <h2>Pôle Académie & Business</h2>
-            <p>Ne vous contentez pas de rouler, devenez le propriétaire. Nous vous formons de A à Z pour lancer votre propre agence.</p>
-        </div>
-
-        <div class="academy-box">
-            <div class="academy-content">
-                <h3 style="color: var(--accent);">Devenez Indépendant</h3>
-                <ul class="academy-list">
-                    <li><strong>Business Plan :</strong> Stratégie de rentabilité complète.</li>
-                    <li><strong>Réseau Fournisseurs :</strong> Accès exclusif à nos contacts.</li>
-                    <li><strong>Coaching Personnel :</strong> Accompagnement téléphonique.</li>
-                </ul>
-                <br>
-                <a href="https://wa.me/33759336987?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20la%20Formation%20Business%20Auto." target="_blank" class="btn-gold" style="display:inline-block;">💬 Postuler à la formation</a>
-            </div>
-            <div class="academy-image">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Coaching Business">
             </div>
         </div>
     </div>
@@ -201,9 +162,188 @@
 <footer>
     <div class="container">
         <p>© 2026 RM Location ZH. Tous droits réservés.</p>
-        <p style="color:#444;">Site de démonstration propulsé par Yac Design.</p>
+        <div class="footer-links">
+            <a onclick="openLegalModal('cgv')">Conditions Générales de Vente</a>
+            <a onclick="openLegalModal('mentions')">Mentions Légales</a>
+        </div>
+        <p style="color:#444; margin-top: 20px;">Site de démonstration propulsé par Yac Design.</p>
     </div>
 </footer>
+
+<div id="modal-auto" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModals()">×</span>
+        <h3 class="modal-title">Demande de Véhicule - <span id="auto-city-display"></span></h3>
+        
+        <div class="form-group">
+            <label>Dates exactes de location :</label>
+            <input type="text" id="auto-dates" class="form-control" placeholder="Ex: Du 12 au 15 Août">
+        </div>
+        <div class="form-group">
+            <label>Durée de location :</label>
+            <select id="auto-duration" class="form-control">
+                <option value="24h">24h</option>
+                <option value="48h">48h</option>
+                <option value="Week-end">Week-end</option>
+                <option value="Semaine">Semaine (7 jours)</option>
+                <option value="Plus">Plus d'une semaine</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Véhicule souhaité (Optionnel) :</label>
+            <input type="text" id="auto-vehicle" class="form-control" placeholder="Ex: RS3, Range Rover, AMG...">
+        </div>
+        <div class="form-group">
+            <label>Livraison souhaitée ?</label>
+            <select id="auto-delivery" class="form-control">
+                <option value="Non">Non, je récupère à l'agence</option>
+                <option value="Oui">Oui (Aéroport ou Hôtel)</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn-wa" onclick="submitForm('auto', 'wa')">📱 Envoyer par WhatsApp</button>
+            <button class="btn-mail" onclick="submitForm('auto', 'mail')">✉️ Envoyer par Email</button>
+        </div>
+        <p style="font-size: 0.75rem; color: #666; text-align: center; margin-top: 15px;">Un acompte sera demandé afin de confirmer votre réservation.</p>
+    </div>
+</div>
+
+<div id="modal-immo" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModals()">×</span>
+        <h3 class="modal-title">Recherche de Bien Immobilier</h3>
+        
+        <div class="form-group">
+            <label>Dates de séjour :</label>
+            <input type="text" id="immo-dates" class="form-control" placeholder="Ex: Du 10 au 20 Septembre">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+                <label>Nombre de personnes :</label>
+                <input type="number" id="immo-people" class="form-control" placeholder="Ex: 4">
+            </div>
+            <div class="form-group">
+                <label>Nombre de chambres :</label>
+                <input type="number" id="immo-rooms" class="form-control" placeholder="Ex: 2">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Budget total estimé (€ ou AED) :</label>
+            <input type="text" id="immo-budget" class="form-control" placeholder="Ex: 1500€">
+        </div>
+
+        <div class="form-actions">
+            <button class="btn-wa" onclick="submitForm('immo', 'wa')">📱 Envoyer par WhatsApp</button>
+            <button class="btn-mail" onclick="submitForm('immo', 'mail')">✉️ Envoyer par Email</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-cgv" class="modal-overlay">
+    <div class="modal-content legal-text">
+        <span class="close-btn" onclick="closeModals()">×</span>
+        <h3 class="modal-title">Conditions Générales de Vente</h3>
+        
+        <h4>1. Réservation et Acomptes</h4>
+        <p>Toute réservation n'est ferme et définitive qu'après la réception d'un acompte validé par nos services. En cas d'annulation de la part du client moins de 48h avant la remise des clés, l'acompte sera intégralement conservé à titre de dédommagement.</p>
+        
+        <h4>2. Obligations du Locataire</h4>
+        <p>Le locataire principal doit présenter les documents originaux en cours de validité (Permis de conduire, Pièce d'identité, Carte bancaire au même nom). En cas de non-présentation ou de fraude suspectée, RM Location ZH se réserve le droit strict d'annuler la location sans remboursement de l'acompte.</p>
+        
+        <h4>3. Rôle d'Intermédiation</h4>
+        <p>RM Location ZH agit en tant que plateforme de mise en relation (Broker) entre le client et un réseau de partenaires loueurs agréés. Le contrat de location final, définissant les règles de sinistres, franchises et assurances, sera signé directement avec le partenaire lors de la livraison du véhicule ou du bien.</p>
+        
+        <h4>4. Comportement et Sanctions</h4>
+        <p>Les véhicules de luxe nécessitent une conduite responsable. Toute conduite dangereuse (drift, circuit non autorisé, sous-location) entraînera la résiliation immédiate du contrat et la saisie du véhicule, sans aucun remboursement possible, assortie de poursuites judiciaires.</p>
+    </div>
+</div>
+
+<div id="modal-mentions" class="modal-overlay">
+    <div class="modal-content legal-text">
+        <span class="close-btn" onclick="closeModals()">×</span>
+        <h3 class="modal-title">Mentions Légales</h3>
+        <p><strong>Édition du site :</strong> Le présent site web a été conçu et développé par Yac Design (Éditeur technique), agence spécialisée dans la création d'infrastructures digitales pour les professionnels de l'automobile.</p>
+        <p><strong>Hébergement :</strong> Le site est hébergé sur les serveurs sécurisés de Cloudflare Inc.</p>
+        <p><strong>Responsabilité :</strong> Yac Design intervient uniquement en tant que prestataire technique. Yac Design décline toute responsabilité quant aux transactions financières, à la gestion de la flotte, ou aux éventuels litiges survenant entre RM Location ZH, ses partenaires et ses clients finaux.</p>
+    </div>
+</div>
+
+<script>
+    let currentContext = '';
+    let currentCity = '';
+    let currentPhone = '';
+    let currentEmail = 'contact@rmlocationzh.com';
+
+    // Ouvrir le bon formulaire
+    function openFormModal(type, city, phone) {
+        currentContext = type;
+        currentCity = city;
+        currentPhone = phone;
+        
+        if(type === 'auto') {
+            document.getElementById('auto-city-display').innerText = city;
+            document.getElementById('modal-auto').style.display = 'flex';
+        } else if (type === 'immo') {
+            document.getElementById('modal-immo').style.display = 'flex';
+        }
+    }
+
+    // Ouvrir les textes légaux
+    function openLegalModal(type) {
+        document.getElementById('modal-' + type).style.display = 'flex';
+    }
+
+    // Fermer toutes les modales
+    function closeModals() {
+        let modals = document.querySelectorAll('.modal-overlay');
+        modals.forEach(m => m.style.display = 'none');
+    }
+
+    // Générer et envoyer le message (WhatsApp ou Mail)
+    function submitForm(type, method) {
+        let text = '';
+        let subject = '';
+
+        if (type === 'auto') {
+            let dates = document.getElementById('auto-dates').value || 'Non précisé';
+            let duration = document.getElementById('auto-duration').value;
+            let vehicle = document.getElementById('auto-vehicle').value || 'À définir';
+            let delivery = document.getElementById('auto-delivery').value;
+
+            subject = `Nouvelle demande Auto - ${currentCity}`;
+            text = `Bonjour l'équipe RM Location ZH ! 👋\n\nJe souhaite réserver un véhicule à *${currentCity}*.\n\n📅 *Dates* : ${dates}\n⏱️ *Durée* : ${duration}\n🚗 *Véhicule* : ${vehicle}\n📍 *Livraison* : ${delivery}\n\nMerci de me confirmer la disponibilité et le tarif.`;
+        } 
+        else if (type === 'immo') {
+            let dates = document.getElementById('immo-dates').value || 'Non précisé';
+            let people = document.getElementById('immo-people').value || 'X';
+            let rooms = document.getElementById('immo-rooms').value || 'X';
+            let budget = document.getElementById('immo-budget').value || 'À définir';
+
+            subject = `Nouvelle demande Immobilier`;
+            text = `Bonjour l'équipe RM Location ZH ! 👋\n\nJe recherche un bien immobilier de standing.\n\n📅 *Dates* : ${dates}\n👥 *Personnes* : ${people}\n🛏️ *Chambres* : ${rooms}\n💵 *Budget* : ${budget}\n\nMerci de m'envoyer les biens correspondants à ces critères.`;
+        }
+
+        if (method === 'wa') {
+            // Encodage pour WhatsApp
+            let waUrl = `https://wa.me/${currentPhone}?text=${encodeURIComponent(text)}`;
+            window.open(waUrl, '_blank');
+        } else if (method === 'mail') {
+            // Encodage pour Email
+            let mailUrl = `mailto:${currentEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+            window.location.href = mailUrl;
+        }
+
+        closeModals(); // Ferme le formulaire après le clic
+    }
+
+    // Fermer si on clique en dehors de la boîte
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            event.target.style.display = 'none';
+        }
+    }
+</script>
 
 </body>
 </html>
