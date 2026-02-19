@@ -50,19 +50,30 @@
 
         /* GRILLES (Auto & Immo) */
         .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .car-card { background: var(--card-bg); border: 1px solid #1a1a1a; border-radius: 6px; overflow: hidden; transition: 0.4s; position: relative; }
+        .car-card { background: var(--card-bg); border: 1px solid #1a1a1a; border-radius: 6px; overflow: hidden; transition: 0.4s; position: relative; display: flex; flex-direction: column; }
         .car-card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
-        .car-img { width: 100%; height: 300px; object-fit: cover; border-bottom: 1px solid #1a1a1a; filter: contrast(1.1) brightness(0.9); }
+        .car-img { width: 100%; height: 280px; object-fit: cover; border-bottom: 1px solid #1a1a1a; filter: contrast(1.1) brightness(0.9); }
         .car-card:hover .car-img { filter: contrast(1.1) brightness(1); }
         
-        .car-info { padding: 40px 30px; }
+        .car-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
         .car-title { font-size: 1.6rem; margin-bottom: 10px; color: #fff; }
-        .location-tag { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; display: block; letter-spacing: 1px; text-transform: uppercase; }
-        .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 6px 15px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 20px; font-weight: bold; letter-spacing: 1px; }
+        .location-tag { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; display: block; letter-spacing: 1px; text-transform: uppercase; }
+        .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 6px 15px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 20px; font-weight: bold; letter-spacing: 1px; align-self: flex-start; }
+
+        /* DESIGN DES FORMULAIRES */
+        .custom-form { background: #050505; padding: 20px; border-radius: 6px; border: 1px solid #222; margin-top: auto; }
+        .form-title { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .form-group { margin-bottom: 12px; }
+        .form-control { width: 100%; padding: 12px 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 0.95rem; transition: 0.3s; }
+        .form-control:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
+        .form-control::placeholder { color: #666; }
         
-        .criteria-list { color: #aaa; font-size: 0.95rem; margin-bottom: 25px; padding-left: 0; line-height: 2; border-left: 2px solid #222; padding-left: 20px; }
-        .criteria-list li { display: flex; align-items: center; }
-        .criteria-list li span { color: var(--accent); margin-right: 10px; }
+        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-submit { border: none; padding: 14px; cursor: pointer; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-wa { background: var(--whatsapp); color: #fff; }
+        .btn-wa:hover { background: #1ebe57; transform: translateY(-2px); }
+        .btn-mail { background: #222; color: #fff; border: 1px solid #444; }
+        .btn-mail:hover { background: #333; border-color: #666; transform: translateY(-2px); }
 
         /* POLE FORMATION (BUSINESS) */
         .academy-box { background: linear-gradient(145deg, #111, #050505); border: 1px solid #222; border-radius: 6px; padding: 60px; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; transition: 0.4s; }
@@ -76,14 +87,6 @@
         .academy-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) contrast(1.2); transition: 0.5s; }
         .academy-box:hover .academy-image img { filter: grayscale(0%) contrast(1.1); }
 
-        /* CONTACT RAPIDE */
-        .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .btn-wa { background: var(--whatsapp); color: #fff; padding: 15px; text-align: center; font-weight: bold; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; }
-        .btn-wa:hover { background: #1ebe57; }
-        .btn-mail { background: var(--mail-bg); color: #fff; padding: 15px; text-align: center; font-weight: bold; border-radius: 4px; border: 1px solid #333; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; }
-        .btn-mail:hover { background: #222; border-color: #555; }
-        .btn-full { grid-column: 1 / -1; } /* Prend toute la largeur */
-
         footer { text-align: center; padding: 50px 20px; border-top: 1px solid #111; background: #000; color: #555; font-size: 0.85rem; letter-spacing: 1px; }
         footer span { color: var(--accent); }
         
@@ -91,7 +94,7 @@
             header h1 { font-size: 2.8rem; }
             .hero-buttons { flex-direction: column; width: 100%; }
             .hero-buttons a { width: 100%; box-sizing: border-box; text-align: center; }
-            .contact-buttons { grid-template-columns: 1fr; }
+            .action-buttons { grid-template-columns: 1fr; }
             .academy-box { padding: 30px; }
             .academy-image { height: 250px; }
         }
@@ -121,16 +124,25 @@
         
         <div class="fleet-grid">
             <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop" alt="Véhicules Dubaï" class="car-img">
+                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop" alt="Véhicules Dubaï" class="car-img">
                 <div class="car-info">
                     <h3 class="car-title">Flotte Dubaï</h3>
                     <span class="location-tag">📍 Partenaires Émirats Arabes Unis</span>
                     <span class="no-caution">🤝 LOCATION SANS CAUTION</span>
-                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:25px;">Sélection de SUV hyper-sportifs et berlines de luxe pour dominer les routes de Dubaï.</p>
+                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:15px;">Sélection de SUV hyper-sportifs et supercars pour dominer les routes de Dubaï.</p>
                     
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/971585689047?text=Bonjour%20RM%20Location%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20location%20auto%20%C3%A0%20Duba%C3%AF.%0A%0A%F0%9F%93%85%20Dates%20%3A%20...%0A%F0%9F%9A%97%20V%C3%A9hicule%20%3A%20..." target="_blank" class="btn-wa">📱 Réserver (WA)</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Demande%20Location%20-%20Dubaï&body=Bonjour%20RM%20Location%2C%0A%0AJe%20souhaite%20louer%20un%20v%C3%A9hicule%20%C3%A0%20Duba%C3%AF.%0A%0A-%20Dates%20exactes%20%3A%20%0A-%20V%C3%A9hicule%20souhait%C3%A9%20%3A%20%0A%0AMerci%20de%20me%20confirmer%20la%20disponibilit%C3%A9." class="btn-mail">✉️ Email</a>
+                    <div class="custom-form">
+                        <div class="form-title">Vérifier la disponibilité</div>
+                        <div class="form-group">
+                            <input type="text" id="dubai-date" class="form-control" placeholder="Vos dates (ex: 12 au 15 Mai)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="dubai-car" class="form-control" placeholder="Modèle souhaité (ex: Lamborghini Urus)">
+                        </div>
+                        <div class="action-buttons">
+                            <button onclick="sendAuto('wa', 'dubai')" class="btn-submit btn-wa">📱 WhatsApp</button>
+                            <button onclick="sendAuto('mail', 'dubai')" class="btn-submit btn-mail">✉️ Email</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,11 +153,20 @@
                     <h3 class="car-title">Flotte Marrakech</h3>
                     <span class="location-tag">📍 Partenaires Maroc</span>
                     <span class="no-caution">🤝 LOCATION SANS CAUTION</span>
-                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:25px;">Classe G, Range Rover et véhicules de prestige pour arpenter Marrakech avec élégance.</p>
+                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:15px;">Classe G, Range Rover et véhicules de prestige pour arpenter Marrakech avec élégance.</p>
                     
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/33759336987?text=Bonjour%20RM%20Location%2C%20je%20suis%20int%C3%A9ress%C3%A9%28e%29%20par%20une%20location%20auto%20%C3%A0%20Marrakech.%0A%0A%F0%9F%93%85%20Dates%20%3A%20...%0A%F0%9F%9A%97%20V%C3%A9hicule%20%3A%20..." target="_blank" class="btn-wa">📱 Réserver (WA)</a>
-                        <a href="mailto:contact@rmlocationzh.com?subject=Demande%20Location%20-%20Marrakech&body=Bonjour%20RM%20Location%2C%0A%0AJe%20souhaite%20louer%20un%20v%C3%A9hicule%20%C3%A0%20Marrakech.%0A%0A-%20Dates%20exactes%20%3A%20%0A-%20V%C3%A9hicule%20souhait%C3%A9%20%3A%20%0A%0AMerci%20de%20me%20confirmer%20la%20disponibilit%C3%A9." class="btn-mail">✉️ Email</a>
+                    <div class="custom-form">
+                        <div class="form-title">Vérifier la disponibilité</div>
+                        <div class="form-group">
+                            <input type="text" id="marrakech-date" class="form-control" placeholder="Vos dates (ex: 20 au 25 Juin)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="marrakech-car" class="form-control" placeholder="Modèle souhaité (ex: Classe G AMG)">
+                        </div>
+                        <div class="action-buttons">
+                            <button onclick="sendAuto('wa', 'marrakech')" class="btn-submit btn-wa">📱 WhatsApp</button>
+                            <button onclick="sendAuto('mail', 'marrakech')" class="btn-submit btn-mail">✉️ Email</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,24 +182,27 @@
         </div>
         
         <div class="fleet-grid">
-            <div class="car-card" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; background: #0f0f0f;">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Villa de luxe" style="flex: 1; min-width: 300px; object-fit: cover; border-right: 1px solid #1a1a1a;">
+            <div class="car-card" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; background: #0f0f0f; flex-direction: row;">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Villa de luxe" style="flex: 1; min-width: 300px; object-fit: cover; border-right: 1px solid #1a1a1a; border-bottom: none;">
                 
-                <div class="car-info" style="flex: 1; min-width: 300px; padding: 50px;">
+                <div class="car-info" style="flex: 1; min-width: 300px; padding: 40px;">
                     <h3 class="car-title" style="font-size: 2rem;">Villas & Appartements</h3>
                     <span class="location-tag">📍 Réseau Dubaï & Marrakech</span>
-                    <p style="color:#ddd; margin-bottom:25px; font-size: 1.05rem;">Envoyez-nous vos critères en un clic. Notre équipe vous fera une sélection sur-mesure des biens correspondants.</p>
+                    <p style="color:#ddd; margin-bottom:20px; font-size: 1rem;">Remplissez vos critères, notre équipe vous enverra instantanément la sélection des biens correspondants.</p>
                     
-                    <ul class="criteria-list">
-                        <li><span>📅</span> Vos dates exactes</li>
-                        <li><span>👥</span> Le nombre de personnes</li>
-                        <li><span>🛏️</span> Le nombre de chambres</li>
-                        <li><span>⏱️</span> La durée du séjour</li>
-                        <li><span>💵</span> Votre budget alloué</li>
-                    </ul>
-                    
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/33759336987?text=Bonjour%2C%20je%20recherche%20un%20bien%20%28Villa%2FAppartement%29.%0A%0A%F0%9F%93%85%20Dates%20%3A%20...%0A%F0%9F%91%A5%20Personnes%20%3A%20...%0A%F0%9F%9B%8F%EF%B8%8F%20Chambres%20%3A%20...%0A%E2%8F%B1%EF%B8%8F%20Dur%C3%A9e%20%3A%20...%0A%F0%9F%92%B5%20Budget%20%3A%20..." target="_blank" class="btn-wa btn-full" style="padding: 18px; font-size: 1rem;">📱 Soumettre mes critères (WhatsApp)</a>
+                    <div class="custom-form" style="margin-top: 0;">
+                        <div class="form-title">Vos critères de recherche</div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                            <div class="form-group"><input type="text" id="immo-date" class="form-control" placeholder="📅 Dates exactes"></div>
+                            <div class="form-group"><input type="text" id="immo-duration" class="form-control" placeholder="⏱️ Durée du séjour"></div>
+                            <div class="form-group"><input type="number" id="immo-pax" class="form-control" placeholder="👥 Nbr Personnes"></div>
+                            <div class="form-group"><input type="number" id="immo-rooms" class="form-control" placeholder="🛏️ Nbr Chambres"></div>
+                            <div class="form-group" style="grid-column: 1 / -1;"><input type="text" id="immo-budget" class="form-control" placeholder="💵 Budget prévu"></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button onclick="sendImmo('wa')" class="btn-submit btn-wa">📱 Envoyer par WhatsApp</button>
+                            <button onclick="sendImmo('mail')" class="btn-submit btn-mail">✉️ Envoyer par Email</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -218,6 +242,56 @@
         <p style="color:#333; margin-top: 10px;">Plateforme sécurisée développée par <span>Yac Design</span>.</p>
     </div>
 </footer>
+
+<script>
+    const emailContact = "contact@rmlocationzh.com";
+    const phoneDubai = "971585689047";
+    const phoneMarrakech = "33759336987";
+
+    function sendAuto(platform, city) {
+        let date = document.getElementById(city + '-date').value;
+        let car = document.getElementById(city + '-car').value;
+
+        if (!date || !car) {
+            alert("⚠️ Veuillez remplir les dates et le véhicule souhaité avant d'envoyer.");
+            return;
+        }
+
+        let phone = city === 'dubai' ? phoneDubai : phoneMarrakech;
+        let cityName = city === 'dubai' ? "Dubaï" : "Marrakech";
+        
+        let text = `Bonjour RM Location, je suis intéressé(e) par une location auto à ${cityName}.\n\n📅 Dates : ${date}\n🚗 Véhicule : ${car}`;
+        let subject = `Demande Location Auto - ${cityName}`;
+
+        if (platform === 'wa') {
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        } else {
+            window.location.href = `mailto:${emailContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+        }
+    }
+
+    function sendImmo(platform) {
+        let date = document.getElementById('immo-date').value;
+        let duration = document.getElementById('immo-duration').value;
+        let pax = document.getElementById('immo-pax').value;
+        let rooms = document.getElementById('immo-rooms').value;
+        let budget = document.getElementById('immo-budget').value;
+
+        if (!date || !duration || !pax || !rooms || !budget) {
+            alert("⚠️ Veuillez remplir tous les critères (Dates, Durée, Personnes, Chambres, Budget) pour que l'équipe puisse trouver votre bien.");
+            return;
+        }
+
+        let text = `Bonjour, je recherche un bien immobilier (Villa/Appartement).\n\n📅 Dates : ${date}\n⏱️ Durée : ${duration}\n👥 Personnes : ${pax}\n🛏️ Chambres : ${rooms}\n💵 Budget : ${budget}`;
+        let subject = `Recherche de Bien Immobilier (Location)`;
+
+        if (platform === 'wa') {
+            window.open(`https://wa.me/${phoneMarrakech}?text=${encodeURIComponent(text)}`, '_blank');
+        } else {
+            window.location.href = `mailto:${emailContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+        }
+    }
+</script>
 
 </body>
 </html>
