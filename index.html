@@ -3,295 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RM Location ZH | Agence & Académie Premium</title>
+    <title>Prestige Motors | Location & Services</title>
     <style>
-        /* =========================================
-           DESIGN SYSTEM (ULTRA LUXE : NOIR PROFOND & OR)
-           ========================================= */
         :root {
-            --bg-color: #030303;       
-            --card-bg: #0f0f0f;        
+            --bg-color: #050505;       
+            --card-bg: #111111;        
             --text-main: #ffffff;      
-            --text-muted: #888888;     
-            --accent: #D4AF37;         /* Or premium */
-            --accent-glow: rgba(212, 175, 55, 0.15);
-            --whatsapp: #25D366;
-            --mail-bg: #1a1a1a;
+            --text-muted: #999999;     
+            --accent: #E50914;         
+            --accent-hover: #b8060f;
+            --wa-color: #25D366;
         }
 
+        * { box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; scroll-behavior: smooth; }
-        h1, h2, h3, h4 { text-transform: uppercase; margin: 0; letter-spacing: 2px; font-weight: 700; }
-        a { text-decoration: none; transition: 0.3s; }
+        h1, h2, h3 { text-transform: uppercase; margin: 0; letter-spacing: 1px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; padding: 0; }
-        
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER / HERO SECTION */
+        /* --- NAVIGATION --- */
+        nav { background: rgba(0,0,0,0.95); padding: 20px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
+        .nav-links { display: flex; gap: 25px; font-size: 0.9rem; text-transform: uppercase; font-weight: bold; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 0; border-bottom: 1px solid #111; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .section-title span { border-bottom: 3px solid var(--accent); padding-bottom: 10px; }
+
+        /* --- HERO --- */
         header {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(3,3,3,1)), url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=1200&auto=format&fit=crop') center/cover;
-            height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid #222;
+            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503376710356-7386908061b4?q=80&w=1600&auto=format&fit=crop') center/cover;
         }
-        .badge-premium { border: 1px solid var(--accent); color: var(--accent); padding: 8px 25px; font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 25px; font-weight: bold; background: rgba(0,0,0,0.5); }
-        header h1 { font-size: 4rem; color: #fff; margin-bottom: 15px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); }
-        header h1 span { color: var(--accent); }
-        .tagline { font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
-        
-        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .btn-gold { background: var(--accent); color: #000; padding: 15px 40px; font-weight: bold; border-radius: 4px; text-transform: uppercase; box-shadow: 0 0 20px var(--accent-glow); font-size: 0.9rem; letter-spacing: 1px; }
-        .btn-gold:hover { background: #eac14d; transform: translateY(-3px); box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); }
-        .btn-outline { background: rgba(0,0,0,0.5); border: 1px solid #fff; color: #fff; padding: 15px 40px; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-        .btn-outline:hover { background: #fff; color: #000; transform: translateY(-3px); }
 
-        section { padding: 100px 0; }
-        .section-header { text-align: center; margin-bottom: 70px; }
-        .section-header h2 { font-size: 2.8rem; color: #fff; margin-bottom: 15px; }
-        .section-header h2 span { color: var(--accent); }
-        .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        /* --- CATALOGUE --- */
+        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .car-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #222; display: flex; flex-direction: column; }
+        .car-img { width: 100%; height: 250px; object-fit: cover; border-bottom: 2px solid #222; cursor: pointer; }
+        .car-info { padding: 25px; flex-grow: 1; }
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; background: #0a0a0a; padding: 15px; border-radius: 5px; font-size: 0.9rem; }
+        .price-value { font-weight: bold; color: var(--accent); }
+        .btn-reserve { background: var(--accent); color: #fff; border: none; padding: 15px; width: 100%; font-weight: bold; text-transform: uppercase; cursor: pointer; border-radius: 4px; }
 
-        /* GRILLES (Auto & Immo) */
-        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .car-card { background: var(--card-bg); border: 1px solid #1a1a1a; border-radius: 6px; overflow: hidden; transition: 0.4s; position: relative; display: flex; flex-direction: column; }
-        .car-card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
-        .car-img { width: 100%; height: 280px; object-fit: cover; border-bottom: 1px solid #1a1a1a; filter: contrast(1.1) brightness(0.9); }
-        .car-card:hover .car-img { filter: contrast(1.1) brightness(1); }
-        
-        .car-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .car-title { font-size: 1.6rem; margin-bottom: 10px; color: #fff; }
-        .location-tag { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; display: block; letter-spacing: 1px; text-transform: uppercase; }
-        .no-caution { display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--accent); padding: 6px 15px; font-size: 0.8rem; border: 1px solid var(--accent); margin-bottom: 20px; font-weight: bold; letter-spacing: 1px; align-self: flex-start; }
+        /* --- QUI SOMMES-NOUS --- */
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-muted); font-size: 1.1rem; }
 
-        /* DESIGN DES FORMULAIRES */
-        .custom-form { background: #050505; padding: 20px; border-radius: 6px; border: 1px solid #222; margin-top: auto; }
-        .form-title { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
-        .form-group { margin-bottom: 12px; }
-        .form-control { width: 100%; padding: 12px 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 0.95rem; transition: 0.3s; }
-        .form-control:focus { outline: none; border-color: var(--accent); background: #1a1a1a; }
-        .form-control::placeholder { color: #666; }
-        
-        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .btn-submit { border: none; padding: 14px; cursor: pointer; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-wa { background: var(--whatsapp); color: #fff; }
-        .btn-wa:hover { background: #1ebe57; transform: translateY(-2px); }
-        .btn-mail { background: #222; color: #fff; border: 1px solid #444; }
-        .btn-mail:hover { background: #333; border-color: #666; transform: translateY(-2px); }
+        /* --- FAQ --- */
+        .faq-item { background: var(--card-bg); padding: 25px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid var(--accent); }
+        .faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
 
-        /* POLE FORMATION (BUSINESS) */
-        .academy-box { background: linear-gradient(145deg, #111, #050505); border: 1px solid #222; border-radius: 6px; padding: 60px; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; transition: 0.4s; }
-        .academy-box:hover { border-color: var(--accent); }
-        .academy-content { flex: 1; min-width: 300px; }
-        .academy-content h3 { font-size: 2.5rem; margin-bottom: 25px; color: #fff; }
-        .academy-content h3 span { color: var(--accent); }
-        .academy-list li { margin-bottom: 18px; font-size: 1.1rem; color: #ccc; display: flex; align-items: center; }
-        .academy-list li::before { content: '■'; color: var(--accent); margin-right: 15px; font-size: 0.8rem; }
-        .academy-image { flex: 1; min-width: 300px; border-radius: 4px; overflow: hidden; height: 400px; }
-        .academy-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) contrast(1.2); transition: 0.5s; }
-        .academy-box:hover .academy-image img { filter: grayscale(0%) contrast(1.1); }
+        /* --- CONTACT --- */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .contact-card { background: var(--card-bg); padding: 40px; border-radius: 8px; border: 1px solid #222; }
+        .contact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 20px; display: block; }
 
-        footer { text-align: center; padding: 50px 20px; border-top: 1px solid #111; background: #000; color: #555; font-size: 0.85rem; letter-spacing: 1px; }
-        footer span { color: var(--accent); }
-        
+        /* --- MODAL --- */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; padding: 20px; }
+        .modal-content { background: var(--card-bg); margin: 20px auto; width: 95%; max-width: 1000px; border-radius: 10px; border: 1px solid var(--accent); display: flex; flex-wrap: wrap; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; color: #fff; font-size: 35px; cursor: pointer; z-index: 10; }
+        .slider-container { flex: 1; min-width: 300px; height: 450px; background: #000; }
+        .slide { display: none; width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .form-container { flex: 1; min-width: 300px; padding: 40px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; text-transform: uppercase; }
+        .form-control { width: 100%; padding: 12px; background: #050505; border: 1px solid #333; color: #fff; border-radius: 4px; }
+
+        /* --- FOOTER & LEGAL --- */
+        footer { padding: 60px 0; text-align: center; background: #000; color: #555; }
+        .legal-links { margin-top: 20px; font-size: 0.8rem; }
+        .legal-links a { margin: 0 10px; text-decoration: underline; }
+
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .hero-buttons a { width: 100%; box-sizing: border-box; text-align: center; }
-            .action-buttons { grid-template-columns: 1fr; }
-            .academy-box { padding: 30px; }
-            .academy-image { height: 250px; }
+            .nav-links { display: none; }
+            .modal-content { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="badge-premium">AGENCE INTERNATIONALE</div>
-        <h1>RM LOCATION <span>ZH</span></h1>
-        <p class="tagline">L'excellence automobile et immobilière. Plateforme de réservation haut de gamme et accompagnement business exclusif.</p>
-        <div class="hero-buttons">
-            <a href="#auto" class="btn-gold">Flotte Auto</a>
-            <a href="#immo" class="btn-outline">Pôle Immobilier</a>
-            <a href="#formation" class="btn-outline">Académie</a>
-        </div>
-    </div>
-</header>
-
-<section id="auto">
-    <div class="container">
-        <div class="section-header">
-            <h2>Pôle <span>Automobile</span></h2>
-            <p>Accédez à notre réseau de partenaires agréés. Des véhicules de prestige disponibles immédiatement, avec un service irréprochable.</p>
-        </div>
-        
-        <div class="fleet-grid">
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop" alt="Véhicules Dubaï" class="car-img">
-                <div class="car-info">
-                    <h3 class="car-title">Flotte Dubaï</h3>
-                    <span class="location-tag">📍 Partenaires Émirats Arabes Unis</span>
-                    <span class="no-caution">🤝 LOCATION SANS CAUTION</span>
-                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:15px;">Sélection de SUV hyper-sportifs et supercars pour dominer les routes de Dubaï.</p>
-                    
-                    <div class="custom-form">
-                        <div class="form-title">Vérifier la disponibilité</div>
-                        <div class="form-group">
-                            <input type="text" id="dubai-date" class="form-control" placeholder="Vos dates (ex: 12 au 15 Mai)">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="dubai-car" class="form-control" placeholder="Modèle souhaité (ex: Lamborghini Urus)">
-                        </div>
-                        <div class="action-buttons">
-                            <button onclick="sendAuto('wa', 'dubai')" class="btn-submit btn-wa">📱 WhatsApp</button>
-                            <button onclick="sendAuto('mail', 'dubai')" class="btn-submit btn-mail">✉️ Email</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=800&auto=format&fit=crop" alt="Véhicules Marrakech" class="car-img">
-                <div class="car-info">
-                    <h3 class="car-title">Flotte Marrakech</h3>
-                    <span class="location-tag">📍 Partenaires Maroc</span>
-                    <span class="no-caution">🤝 LOCATION SANS CAUTION</span>
-                    <p style="color:#aaa; font-size:0.95rem; margin-bottom:15px;">Classe G, Range Rover et véhicules de prestige pour arpenter Marrakech avec élégance.</p>
-                    
-                    <div class="custom-form">
-                        <div class="form-title">Vérifier la disponibilité</div>
-                        <div class="form-group">
-                            <input type="text" id="marrakech-date" class="form-control" placeholder="Vos dates (ex: 20 au 25 Juin)">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="marrakech-car" class="form-control" placeholder="Modèle souhaité (ex: Classe G AMG)">
-                        </div>
-                        <div class="action-buttons">
-                            <button onclick="sendAuto('wa', 'marrakech')" class="btn-submit btn-wa">📱 WhatsApp</button>
-                            <button onclick="sendAuto('mail', 'marrakech')" class="btn-submit btn-mail">✉️ Email</button>
-                        </div>
-                    </div>
-                </div>
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">PRESTIGE MOTORS</div>
+            <div class="nav-links">
+                <a href="#home">Accueil</a>
+                <a href="#fleet">Flotte</a>
+                <a href="#about">Qui sommes-nous</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<section id="immo" style="background-color: #080808; border-top: 1px solid #111; border-bottom: 1px solid #111;">
-    <div class="container">
-        <div class="section-header">
-            <h2>Pôle <span>Immobilier</span></h2>
-            <p>Villas de rêve et appartements de haut standing. Confiez-nous vos exigences, nous sélectionnons le bien parfait.</p>
-        </div>
-        
-        <div class="fleet-grid">
-            <div class="car-card" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; background: #0f0f0f; flex-direction: row;">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Villa de luxe" style="flex: 1; min-width: 300px; object-fit: cover; border-right: 1px solid #1a1a1a; border-bottom: none;">
+    <header id="home">
+        <h1 style="font-size: 3rem;">Location de <span>Prestige</span></h1>
+        <p style="letter-spacing: 2px; text-transform: uppercase;">Sportives & Citadines</p>
+    </header>
+
+    <section id="fleet">
+        <div class="container">
+            <h2 class="section-title"><span>Nos Modèles</span></h2>
+            <div class="fleet-grid">
                 
-                <div class="car-info" style="flex: 1; min-width: 300px; padding: 40px;">
-                    <h3 class="car-title" style="font-size: 2rem;">Villas & Appartements</h3>
-                    <span class="location-tag">📍 Réseau Dubaï & Marrakech</span>
-                    <p style="color:#ddd; margin-bottom:20px; font-size: 1rem;">Remplissez vos critères, notre équipe vous enverra instantanément la sélection des biens correspondants.</p>
-                    
-                    <div class="custom-form" style="margin-top: 0;">
-                        <div class="form-title">Vos critères de recherche</div>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
-                            <div class="form-group"><input type="text" id="immo-date" class="form-control" placeholder="📅 Dates exactes"></div>
-                            <div class="form-group"><input type="text" id="immo-duration" class="form-control" placeholder="⏱️ Durée du séjour"></div>
-                            <div class="form-group"><input type="number" id="immo-pax" class="form-control" placeholder="👥 Nbr Personnes"></div>
-                            <div class="form-group"><input type="number" id="immo-rooms" class="form-control" placeholder="🛏️ Nbr Chambres"></div>
-                            <div class="form-group" style="grid-column: 1 / -1;"><input type="text" id="immo-budget" class="form-control" placeholder="💵 Budget prévu"></div>
+                <div class="car-card">
+                    <img src="golf8.jpg" alt="Golf 8 GTI" class="car-img" onerror="this.src='https://images.unsplash.com/photo-1621349023020-f5379e9514e8?q=80&w=800&auto=format&fit=crop'">
+                    <div class="car-info">
+                        <h3>Volkswagen Golf 8 GTI</h3>
+                        <div class="pricing-grid">
+                            <div>Jour: <span class="price-value">150€</span></div>
+                            <div>Week-end: <span class="price-value">350€</span></div>
+                            <div>Caution: <span class="price-value">1500€</span></div>
                         </div>
-                        <div class="action-buttons">
-                            <button onclick="sendImmo('wa')" class="btn-submit btn-wa">📱 Envoyer par WhatsApp</button>
-                            <button onclick="sendImmo('mail')" class="btn-submit btn-mail">✉️ Envoyer par Email</button>
-                        </div>
+                        <button class="btn-reserve" onclick="openModal('Golf 8 GTI', ['golf8_1.jpg', 'golf8_2.jpg'])">Réserver</button>
                     </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="rs3.jpg" alt="Audi RS3" class="car-img" onerror="this.src='https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop'">
+                    <div class="car-info">
+                        <h3>Audi RS3 Sportback</h3>
+                        <div class="pricing-grid">
+                            <div>Jour: <span class="price-value">250€</span></div>
+                            <div>Week-end: <span class="price-value">600€</span></div>
+                            <div>Caution: <span class="price-value">3000€</span></div>
+                        </div>
+                        <button class="btn-reserve" onclick="openModal('Audi RS3', ['rs3_1.jpg', 'rs3_2.jpg'])">Réserver</button>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="clio5.jpg" alt="Clio 5" class="car-img" onerror="this.src='https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop'">
+                    <div class="car-info">
+                        <h3>Renault Clio 5</h3>
+                        <div class="pricing-grid">
+                            <div>Jour: <span class="price-value">60€</span></div>
+                            <div>Week-end: <span class="price-value">150€</span></div>
+                            <div>Caution: <span class="price-value">800€</span></div>
+                        </div>
+                        <button class="btn-reserve" onclick="openModal('Clio 5', ['clio1.jpg', 'clio2.jpg'])">Réserver</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: #080808;">
+        <div class="container">
+            <h2 class="section-title"><span>Qui sommes-nous ?</span></h2>
+            <div class="about-content">
+                <p>Bienvenue chez Prestige Motors, votre partenaire de confiance pour la location de véhicules de prestige et de citadines modernes.</p>
+                <p>Née d'une passion pour l'automobile, notre entreprise s'efforce d'offrir une expérience de conduite inégalée. Que vous recherchiez la puissance d'une RS3 pour un événement spécial ou la simplicité d'une Clio 5 pour vos déplacements urbains, nous avons le véhicule qu'il vous faut.</p>
+                <p>Notre engagement : Transparence, Sécurité et Réactivité.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title"><span>Questions Fréquentes</span></h2>
+            <div class="faq-item">
+                <h3>Quels documents sont nécessaires ?</h3>
+                <p>Une pièce d'identité en cours de validité, votre permis de conduire (original) et un justificatif de domicile de moins de 3 mois.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Comment fonctionne la caution ?</h3>
+                <p>La caution est effectuée par empreinte bancaire le jour du départ. Elle n'est pas débitée mais bloque le plafond de votre carte.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Puis-je rendre le véhicule dans une autre ville ?</h3>
+                <p>Nos locations sont basées sur un retour au point de départ. Pour toute exception, merci de nous contacter directement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: #080808;">
+        <div class="container">
+            <h2 class="section-title"><span>Contactez-nous</span></h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>WhatsApp</h3>
+                    <p>+33 6 00 00 00 00</p>
+                    <a href="https://wa.me/33600000000" class="btn-reserve" style="display:inline-block; padding: 10px 20px; margin-top:10px;">Écrire</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>contact@prestigemotors.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Instagram</h3>
+                    <p>@PrestigeMotors_FR</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="formation">
-    <div class="container">
-        <div class="section-header">
-            <h2>Pôle <span>Académie</span></h2>
-            <p>Ne vous contentez pas de louer, devenez le propriétaire. Nous vous formons de A à Z pour lancer un empire automobile.</p>
-        </div>
-
-        <div class="academy-box">
-            <div class="academy-content">
-                <h3>Devenez <span>Indépendant</span></h3>
-                <p style="color: #aaa; margin-bottom: 25px; font-size: 1.1rem;">Rejoignez l'élite. Apprenez les stratégies exactes qui nous ont permis de nous développer à l'international.</p>
-                <ul class="academy-list">
-                    <li><strong>Business Plan :</strong> Stratégie de rentabilité et scaling.</li>
-                    <li><strong>Réseau Exclusif :</strong> Accès direct à nos fournisseurs.</li>
-                    <li><strong>Coaching Personnel :</strong> Accompagnement téléphonique 1-on-1.</li>
-                </ul>
-                <br>
-                <a href="https://wa.me/33759336987?text=Bonjour%20RM%20Location%2C%20je%20souhaite%20des%20informations%20sur%20la%20Formation%20Business%20pour%20lancer%20mon%20agence." target="_blank" class="btn-gold" style="display:inline-block; margin-top: 10px;">💬 Postuler à la formation</a>
-            </div>
-            <div class="academy-image">
-                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Coaching Business">
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Prestige Motors. Tous droits réservés.</p>
+            <div class="legal-links">
+                <a href="#" onclick="alert('Mentions Légales: Prestige Motors SARL - SIRET 123456789 - Hébergement Cloudflare')">Mentions Légales</a>
+                <a href="#" onclick="alert('CGV: Le locataire s\'engage à rendre le véhicule propre et avec le plein. Toute dégradation sera prélevée sur la caution.')">CGV</a>
             </div>
         </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="slider-container" id="modalSlider"></div>
+            <div class="form-container">
+                <h2 id="modalCarName" style="color:var(--accent); margin-bottom:20px;">Véhicule</h2>
+                <div class="form-group"><label>Nom & Prénom</label><input type="text" id="f_nom" class="form-control" placeholder="Jean Dupont"></div>
+                <div class="form-group"><label>Âge</label><input type="number" id="f_age" class="form-control"></div>
+                <div class="form-group"><label>Années de permis</label><input type="number" id="f_permis" class="form-control"></div>
+                <div class="form-group"><label>Téléphone</label><input type="tel" id="f_tel" class="form-control"></div>
+                <div class="form-group"><label>Date de début</label><input type="date" id="f_date" class="form-control"></div>
+                <button class="btn-reserve" style="background:var(--wa-color);" onclick="sendBooking()">Valider via WhatsApp</button>
+            </div>
+        </div>
     </div>
-</section>
 
-<footer>
-    <div class="container">
-        <p>© 2026 RM Location ZH. Tous droits réservés.</p>
-        <p style="color:#333; margin-top: 10px;">Plateforme sécurisée développée par <span>Yac Design</span>.</p>
-    </div>
-</footer>
+    <script>
+        let currentCar = "";
+        let slideIndex = 0;
+        let timer;
 
-<script>
-    const emailContact = "contact@rmlocationzh.com";
-    const phoneDubai = "971585689047";
-    const phoneMarrakech = "33759336987";
-
-    function sendAuto(platform, city) {
-        let date = document.getElementById(city + '-date').value;
-        let car = document.getElementById(city + '-car').value;
-
-        if (!date || !car) {
-            alert("⚠️ Veuillez remplir les dates et le véhicule souhaité avant d'envoyer.");
-            return;
+        function openModal(car, imgs) {
+            currentCar = car;
+            document.getElementById('modalCarName').innerText = car;
+            const slider = document.getElementById('modalSlider');
+            slider.innerHTML = "";
+            imgs.forEach(src => {
+                const div = document.createElement('div');
+                div.className = "slide";
+                div.innerHTML = `<img src="${src}" onerror="this.src='https://via.placeholder.com/800x500/111/E50914?text=Photo+en+attente'">`;
+                slider.appendChild(div);
+            });
+            document.getElementById('bookingModal').style.display = 'block';
+            slideIndex = 0;
+            startSlider();
         }
 
-        let phone = city === 'dubai' ? phoneDubai : phoneMarrakech;
-        let cityName = city === 'dubai' ? "Dubaï" : "Marrakech";
-        
-        let text = `Bonjour RM Location, je suis intéressé(e) par une location auto à ${cityName}.\n\n📅 Dates : ${date}\n🚗 Véhicule : ${car}`;
-        let subject = `Demande Location Auto - ${cityName}`;
-
-        if (platform === 'wa') {
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
-        } else {
-            window.location.href = `mailto:${emailContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-        }
-    }
-
-    function sendImmo(platform) {
-        let date = document.getElementById('immo-date').value;
-        let duration = document.getElementById('immo-duration').value;
-        let pax = document.getElementById('immo-pax').value;
-        let rooms = document.getElementById('immo-rooms').value;
-        let budget = document.getElementById('immo-budget').value;
-
-        if (!date || !duration || !pax || !rooms || !budget) {
-            alert("⚠️ Veuillez remplir tous les critères (Dates, Durée, Personnes, Chambres, Budget) pour que l'équipe puisse trouver votre bien.");
-            return;
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            clearTimeout(timer);
         }
 
-        let text = `Bonjour, je recherche un bien immobilier (Villa/Appartement).\n\n📅 Dates : ${date}\n⏱️ Durée : ${duration}\n👥 Personnes : ${pax}\n🛏️ Chambres : ${rooms}\n💵 Budget : ${budget}`;
-        let subject = `Recherche de Bien Immobilier (Location)`;
-
-        if (platform === 'wa') {
-            window.open(`https://wa.me/${phoneMarrakech}?text=${encodeURIComponent(text)}`, '_blank');
-        } else {
-            window.location.href = `mailto:${emailContact}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+        function startSlider() {
+            const slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex-1].style.display = "block";
+            timer = setTimeout(startSlider, 3000);
         }
-    }
-</script>
 
+        function sendBooking() {
+            const nom = document.getElementById('f_nom').value;
+            const age = document.getElementById('f_age').value;
+            const tel = document.getElementById('f_tel').value;
+            const date = document.getElementById('f_date').value;
+            if(!nom || !tel || !date) return alert("Remplissez les champs obligatoires");
+            
+            const msg = `Bonjour Prestige Motors, je souhaite réserver la ${currentCar}.\nNom: ${nom}\nAge: ${age} ans\nTél: ${tel}\nDate: ${date}`;
+            window.open(`https://wa.me/33600000000?text=${encodeURIComponent(msg)}`);
+        }
+    </script>
 </body>
 </html>
